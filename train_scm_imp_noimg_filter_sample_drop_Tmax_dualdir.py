@@ -761,8 +761,8 @@ def train(
                         if config.train.scm_cfg_scale[0] > 1 and config.model.cfg_embed:
                             cfg_x_t = torch.cat([x_t, x_t], dim=0)
                             cfg_t = torch.cat([t, t], dim=0)
-                            uncond_y_repeat = uncond_y.repeat(y_expanded.shape[0], 1, 1, 1)
-                            cfg_y = torch.cat([uncond_y, y_expanded], dim=0)
+                            uncond_y_repeat2 = uncond_y.repeat(y_expanded.shape[0], 1, 1, 1)
+                            cfg_y = torch.cat([uncond_y_repeat2, y_expanded], dim=0)
                             cfg_y_mask = torch.cat([y_mask_expanded, y_mask_expanded], dim=0)
 
                             cfg_model_kwargs = dict(y=cfg_y, mask=cfg_y_mask)
